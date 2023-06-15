@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= incluir('Style'); ?>
+  </head>
+  <body>
+    <h1> Formulario de Compra </h1>
+    <form>
+      <label for="produto">Produto:</label>
+      <input type="text" id="produto" name="produto" required><br>
+
+      <label for="quantidade">quantidade:</label>
+      <input type="number" id="quantidade" name="quantidade" required><br>
+
+      <button type="button" onclick="gravarDados()">Inserir</button>
+    </form>
+  
+  <table id="tabela-compras">
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+    <tr>
+  </table>
+
+  <script>
+    function gravarDados(){
+            var produto = document.getElementById('produto').value;
+            var quantidade = document.getElementById('quantidade').value;
+
+            var tabela = document.getElementById('tabela-compras');
+            var linha = tabela.insertRow();
+
+            var celulaProduto = linha.insertCell(0);
+            celulaProduto.innerHTML = produto;
+
+            var celulaquantidade = linha.insertCell(1);
+            celulaquantidade.innerHTML = quantidade;
+        }
+    </script>
+  </body>
+</html>
